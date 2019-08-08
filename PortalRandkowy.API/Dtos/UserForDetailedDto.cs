@@ -1,22 +1,15 @@
 using System;
 using System.Collections.Generic;
+using PortalRandkowy.API.Models;
 
-namespace PortalRandkowy.API.Models
+namespace PortalRandkowy.API.Dtos
 {
-    public class User
+    public class UserForDetailedDto
     {
-        public int Id { get; set; }
+         public int Id { get; set; }
         public string UserName { get; set; }
-        public byte[] PasswordHash { get; set; }
-        public byte[] PasswordSalt { get; set; }
         public string Gender {get;set;}
-        public DateTime DateOfBirth { get; set; }
-
-        internal object FirstOrDefoult(Func<object, object> p)
-        {
-            throw new NotImplementedException();
-        }
-
+        public int Age { get; set; }
         public string ZodiacSign { get; set; }
         public DateTime Created { get; set; }
         public DateTime LastActive { get; set; }
@@ -44,6 +37,7 @@ namespace PortalRandkowy.API.Models
         public string MakesMeLaugh { get; set; }
         public string ItFeelsBestIn { get; set; }
         public string FriendsWouldDescribeMe { get; set; }
-        public ICollection<Photo> Photos { get; set; }
+        public ICollection<PhotosForDetailedDto> Photos { get; set; }
+        public string PhotoUrl { get; set; }
     }
 }
