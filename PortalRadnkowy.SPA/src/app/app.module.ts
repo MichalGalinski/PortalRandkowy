@@ -14,8 +14,10 @@ import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_services/alertify.service';
 import { UserService } from './_services/user.service';
 import { UsereListComponent } from './users/usere-list/usere-list.component';
-import { config } from 'rxjs';
 import { appRoutes } from './routes';
+import { LikesComponent } from './likes/likes.component';
+import { MessagesComponent } from './messages/messages.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 
 export function tokenGetter() {
@@ -28,7 +30,9 @@ export function tokenGetter() {
       NavComponent,
       HomeComponent,
       RegisterComponent,
-      UsereListComponent
+      UsereListComponent,
+      LikesComponent,
+      MessagesComponent
    ],
    imports: [
       BrowserModule,
@@ -41,12 +45,14 @@ export function tokenGetter() {
             blacklistedRoutes: ['localhost:5000/api/auth']
          }
       }),
-      RouterModule.forRoot(appRoutes),
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       AuthService,
       AlertifyService,
-      UserService
+      UserService,
+      AuthGuard,
+      
    ],
    bootstrap: [
       AppComponent
