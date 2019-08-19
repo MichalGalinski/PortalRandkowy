@@ -11,3 +11,12 @@
     border-top: none;
     margin-bottom: 15px;
 }
+
+.user-table-td {
+    width: 50%;
+}
+
+.user-table {
+    width: 100%;
+    margin: 30px;
+}

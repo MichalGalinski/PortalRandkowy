@@ -1,8 +1,9 @@
 import { Photo } from './photo';
 
 export interface User {
+    /** Postawowe informacje */
     id: number;
-    userName: string;
+    username: string;
     gender: string;
     age: number;
     zodiacSign: string;
@@ -10,7 +11,7 @@ export interface User {
     lastActive: Date;
     city: string;
     country: string;
-     // info
+    /** Zakładka Info */
     growth: string;
     eyeColor: string;
     hairColor: string;
@@ -19,24 +20,24 @@ export interface User {
     profession: string;
     children: string;
     languages: string;
-    // o mnie
+    /** Zakłada  O mnie */
     motto: string;
     description: string;
     personality: string;
     lookingFor: string;
-    // pasje
-    intrests?: any;
+    /** Zakłaka Pasje, zaiteresowania */
+    intrests: string;
     freeTime: string;
     sport: string;
     movies: string;
     music: string;
-    // preferencje
+    /** Zakładka Preferencje */
     iLike: string;
-    iDontLike?: any;
+    iDontLike: string;
     makesMeLaugh: string;
     itFeelsBestIn: string;
-    friendsWouldDescribeMe?: any;
-    // zdjęcia
+    friendsWouldDescribeMe: string;
+    /** Zakładka Zdjecia */
     photos: Photo[];
     photoUrl: string;
 }

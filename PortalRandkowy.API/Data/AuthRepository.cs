@@ -17,7 +17,7 @@ namespace PortalRandkowy.API.Data
         }
         public async Task<User> Login(string username, string password)
         {
-            var user = await this.context.Users.FirstOrDefaultAsync(x => x.UserName == username);
+            var user = await this.context.Users.FirstOrDefaultAsync(x => x.Username == username);
             if (user == null)
                 return null;
             
@@ -38,7 +38,7 @@ namespace PortalRandkowy.API.Data
         }
         public async Task<bool> UserExist(string username)
         {
-            if(await this.context.Users.AnyAsync(x=> x.UserName == username))
+            if(await this.context.Users.AnyAsync(x=> x.Username== username))
                 return true;
 
             return false;

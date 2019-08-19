@@ -6,38 +6,56 @@ namespace PortalRandkowy.API.Dtos
 {
     public class UserForDetailedDto
     {
-         public int Id { get; set; }
-        public string UserName { get; set; }
-        public string Gender {get;set;}
-        public int Age { get; set; }
-        public string ZodiacSign { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime LastActive { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; } 
-        public string Growth { get; set; }  
-        public string EyeColor { get; set; }    
-        public string HairColor { get; set; }   
-        public string MartialStatus { get; set; }   
-        public string Education { get; set; }   
-        public string Profession { get; set; }  
-        public string Children { get; set; }    
-        public string Languages { get; set; }
-        public string Motto { get; set; }   
-        public string Description { get; set; } 
-        public string Personality { get; set; } 
-        public string LookingFor { get; set; }
-        public string Intrests { get; set; }    
-        public string FreeTime { get; set; }    
-        public string Sport { get; set; }   
-        public string Movies { get; set; }  
-        public string Music { get; set; }
-        public string ILike { get; set; }
-        public string IDontLike { get; set; }   
-        public string MakesMeLaugh { get; set; }
-        public string ItFeelsBestIn { get; set; }
-        public string FriendsWouldDescribeMe { get; set; }
-        public ICollection<PhotosForDetailedDto> Photos { get; set; }
+        public int Id { get; set; }
+        public string Username { get; set; }
+
+
+        // Postawowe informacje
+        public string Gender { get; set; }          // Płeć
+        public int Age { get; set; }                // Wiek
+        public string ZodiacSign { get; set; }      // Znak zodiaku
+        public DateTime Created { get; set; }       // Data utworzenia/rejestracji
+        public DateTime LastActive { get; set; }    // Ostatnia aktywność
+        public string City { get; set; }            // Miasto
+        public string Country { get; set; }         // Kraj
+
+        // Zakładka Info
+        public string Growth { get; set; }          // Wygląd - wzrost
+        public string EyeColor { get; set; }        // Wygląd - kolor oczu
+        public string HairColor { get; set; }       // Wygląd - kolor włosów
+        public string MartialStatus { get; set; }   // Formalne - stan cywilny
+        public string Education { get; set; }       // Formalne - wykształcenie
+        public string Profession { get; set; }      // Formalne - zawód
+        public string Children { get; set; }        // Dzieci
+        public string Languages { get; set; }       // Języki obce
+
+
+        // Zakłada  O mnie
+        public string Motto { get; set; }           // Motto życiowe
+        public string Description { get; set; }     // Opis
+        public string Personality { get; set; }     // Osonowość
+        public string LookingFor { get; set; }      // Szukam
+
+
+        // Zakłaka Pasje, zaiteresowania
+        public string Intrests { get; set; }       // Zainteresowania
+        public string FreeTime { get; set; }        // Czas wolny
+        public string Sport { get; set; }           // Sport
+        public string Movies { get; set; }          // Filmy
+        public string Music { get; set; }           // Muzyka
+
+
+        // Zakładka Preferencje
+        public string ILike { get; set; }           // Lubię
+        public string IDontLike { get; set; }      // Nie lubię
+        public string MakesMeLaugh { get; set; }    // Rozśmiesza mnie
+        public string ItFeelsBestIn { get; set; }   //Najlepiej czuję się w
+        public string FriendsWouldDescribeMe { get; set; }  // Przyjaciele opisali by mnie
+
+
+        // Zakładka zdjecia
+        public ICollection<PhotosForDetailedDto> Photos { get; set; }      // Zdjęcia użytkownika
+
         public string PhotoUrl { get; set; }
     }
 }

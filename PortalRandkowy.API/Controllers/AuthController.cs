@@ -32,7 +32,7 @@ namespace PortalRandkowy.API.Controllers
                 return BadRequest("Użytownik o takiej nazwie już istnieje !");
             var userToCreate = new User
             {
-                UserName = userForRegisterDto.Username
+                Username = userForRegisterDto.Username
             };
             var createdUser = await this.repository.Register(userToCreate, userForRegisterDto.Password);
             return StatusCode(201);
@@ -49,7 +49,7 @@ namespace PortalRandkowy.API.Controllers
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
-                new Claim(ClaimTypes.Name,userFromRepo.UserName)
+                new Claim(ClaimTypes.UserData,userFromRepo.Username)
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this.config.GetSection("AppSettings:Token").Value));
             var creds = new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
