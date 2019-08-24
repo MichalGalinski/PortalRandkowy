@@ -43,6 +43,7 @@ namespace PortalRandkowy.API
             services.AddCors();   
             services.AddAutoMapper();   
             services.AddTransient<Seed>();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<IAuthRepository,AuthRepository>();
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IUserRepository, UserRepository>();

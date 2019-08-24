@@ -10,6 +10,7 @@ import { UserListResolver } from './_resolvers/user-list.resolver';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
 import { UserEditResolver } from './_resolvers/user-edit.resolver';
 
+
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
     { path: '',
@@ -18,7 +19,7 @@ export const appRoutes: Routes = [
       children: [
         { path: 'uzytkownicy', component: UsereListComponent, resolve: {users: UserListResolver}},
         { path: 'uzytkownicy/:id', component: UserDetailComponent, resolve: {user: UserDetailResolver}},
-        { path: 'uzytkownicy/edycja', component: UserEditComponent, resolve: {user: UserEditResolver}},
+        { path: 'uzytkownik/edycja', component: UserEditComponent, resolve: {user: UserEditResolver}},
         { path: 'polubienia', component: LikesComponent},
         { path: 'wiadomosci', component: MessagesComponent},
       ]
