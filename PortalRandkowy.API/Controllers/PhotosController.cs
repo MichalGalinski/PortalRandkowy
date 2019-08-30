@@ -39,7 +39,7 @@ namespace PortalRandkowy.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPhotoForUser(int userId, PhotoForCreationDto photoForCreationDto) 
+        public async Task<IActionResult> AddPhotoForUser(int userId, [FromForm]PhotoForCreationDto photoForCreationDto) 
         {
             if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
@@ -71,11 +71,22 @@ namespace PortalRandkowy.API.Controllers
             userFromRepo.Photos.Add(photo);
 
             if (await this.repository.SaveAll())
-                return Ok();
+            {
+                var photoToReturn = this.mapper.Map<PhotoForReturnDto>(photo);
+                return CreatedAtRoute("GetPhoto", new { id = photo.Id}, photoToReturn);
+            }      
 
             return BadRequest("Nie można dodać zdjęcia");
         } 
-    }
-    
 
+        [HttpGet("{id}", Name = "GetPhoto")]
+        public async Task<IActionResult> GetPhoto(int id)
+        {
+            var photoFromRepo = await this.repository.GetPhoto(id);
+
+            var photoForReturn = this.mapper.Map<PhotoForReturnDto>(photoFromRepo);
+            
+            return Ok(photoForReturn);
+        }
+    }  
 }
